@@ -1,0 +1,11 @@
+/*******************************/
+/*  LOGIN STYLES */
+/*******************************/
+
+.login #backtoblog a, .login #nav a {
+  color: #fff;
+}
+
+body.login {
+  background-color: #42c3d7;
+}
