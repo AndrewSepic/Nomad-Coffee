@@ -2,29 +2,50 @@
 /*
 Template Name: New Homepage
 */
-?>
 
-<?php get_header(); ?>
-		<div class="hero row">
 
-			<div id="ses" class="large-6 medium-6 small-12 columns">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ses.svg" alt="Nomad Coffee - South End Station" />
-				<div class="row top-margin locationHours">
-					<div class="large-6 medium-6 small-12 columns center">
-						<h3 class="underline">Location</h3>
-						<p class="highlight">208 Flynn Ave, Burlington VT<br/>
-							<a target="_blank" href="https://www.google.com/maps/dir//Nomad+Coffee,+208+Flynn+Ave+%233i,+Burlington,+VT+05401/@44.4561307,-73.2203387,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x4cca7b5e05789ef9:0x784edcfe537d755f!2m2!1d-73.2181447!2d44.4561269!3e0">map/directions</a>
-						</p>
-					</div>
-					<div class="large-6 medium-6 small-12 columns center">
-						<h3 class="underline">Current Hours</h3>
-						<p class="highlight">Wed - Sun : 8:00 - 1pm</p>
-					</div>
-				</div>
-				<a class="button large" href="http://nomadcoffeevt.com/southend">Order Online</a>
-			</div>
+get_header(); ?>
+		<div class="locations">
 
-			<div id="eo" class="large-6 medium-6 small-12 columns">
+			<?php
+				if( have_rows('location') ) :
+
+					while( have_rows('location') ) : the_row();
+
+						$name = get_sub_field('location_name');
+						$image = get_sub_field('location_image');
+						$address = get_sub_field('location_address');
+						$hours = get_sub_field('location_hours');
+						$online_order = get_sub_field('order_online_link'); ?>
+
+						<div class="location">
+							<div class="location-image">
+								<img src="<?= $image['url']; ?>" alt="<?= $image['alt'];?>" />
+							</div>
+							<h2><?= $name; ?></h2>
+							<div class="address">
+								<h3>Address</h3>
+								<?= $address; ?>
+							</div>
+							<div class="hours">
+								<h3>Hours</h3>
+								<?= $hours; ?>
+							</div>
+							<?php
+								if($online_order): ?>
+									<a class="online-order" href="<? $online_order['url']; ?>" target="_blank">Order Online</a>
+								<? endif; ?>
+						</div>
+						<?php
+					endwhile;
+
+				else:
+					// silence is golden
+
+				endif; ?>
+
+
+			<!-- <div id="eo" class="large-6 medium-6 small-12 columns">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/eo.svg" alt="Nomad Coffee - Essex Outpost" />
 				<div class="row top-margin locationHours">
 					<div class="large-6 medium-6 small-12 columns center">
@@ -34,12 +55,12 @@ Template Name: New Homepage
 						</p>
 					</div>
 					<div class="large-6 medium-6 small-12 columns center">
-						<h3 class="underline">Current Hours</h3>
-						<p class="highlight">Thurs - Sun : 8:00 - 1pm</p>
+						<h3 class="underline">Hours</h3>
+						<p class="highlight">7 Days/week : 7:30 - 2pm</p>
 					</div>
 				</div>
 				<a class="button large" href="http://nomadcoffeevt.com/essex">Order Online </a>
-			</div>
+			</div> -->
 
 		</div>
 
