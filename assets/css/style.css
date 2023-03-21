@@ -5844,10 +5844,20 @@ div#headerImg {
 .locations .location {
   width: 33%;
 }
+@media only screen and (max-width: 640px) {
+  .locations .location {
+    width: 100%;
+  }
+}
 .locations .location .location-image {
   height: 300px;
   width: 100%;
   position: relative;
+}
+@media only screen and (max-width: 640px) {
+  .locations .location .location-image {
+    height: 175px;
+  }
 }
 .locations .location .location-image img {
   position: absolute;
@@ -5863,12 +5873,19 @@ div#headerImg {
   background-color: #42c3d7;
   color: #fff;
   font-family: "Muli", Helvetica, Roboto, Arial, sans-serif;
+  padding-left: 2rem;
 }
 .locations .location .address, .locations .location .hours {
+  padding-left: 2rem;
   width: 50%;
 }
+@media only screen and (max-width: 640px) {
+  .locations .location .address, .locations .location .hours {
+    width: 100%;
+  }
+}
 .locations .location a.online-order {
-  width: 100%;
+  margin-left: 2rem;
 }
 
 body.home h1.page-title {

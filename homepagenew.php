@@ -33,7 +33,7 @@ get_header(); ?>
 							</div>
 							<?php
 								if($online_order): ?>
-									<a class="online-order" href="<? $online_order['url']; ?>" target="_blank">Order Online</a>
+									<a class="online-order" href="<?= $online_order['url']; ?>" target="<?= $online_order['target'] ?>"><?= $online_order['title']?></a>
 								<? endif; ?>
 						</div>
 						<?php

@@ -276,10 +276,14 @@ div#headerImg
   flex-wrap: wrap
   .location
     width: 33%
+    @media only screen and (max-width: 640px)
+      width: 100%
     .location-image
       height: 300px
       width: 100%
       position: relative
+      @media only screen and (max-width: 640px)
+        height: 175px
       img
         position: absolute
         height: 100%
@@ -293,10 +297,14 @@ div#headerImg
       background-color: $primary-color
       color: #fff
       font-family: "Muli", Helvetica, Roboto, Arial, sans-serif
+      padding-left: 2rem
     .address, .hours
+      padding-left: 2rem
       width: 50%
+      @media only screen and (max-width: 640px)
+        width: 100%
     a.online-order
-      width: 100%
+      margin-left: 2rem
 
 body.home
   h1.page-title
